@@ -10,10 +10,15 @@ def evaluate_attendance_status(attended: int, total: int) -> str:
 
     If total <= 0, return 'NO_SESSIONS'.
     """
-    # TODO: Implement conditional attendance check
-    raise NotImplementedError("Task 1a: Implement evaluate_attendance_status")
-
-
+   if total <= 0:
+        return 'NO_SESSIONS'
+    percent = (attended / total) * 100
+    if percent >= 75:
+        return 'ELIGIBLE'
+    elif percent >= 65 and percent < 75:
+        return 'WARNING'
+    else:
+        return 'SHORTAGE'
 def safe_parse_float(raw_value: Any, default: float = 0.0) -> float:
     """Convert raw_value to float safely using try/except. Return default on failure."""
     # TODO: Handle ValueError / TypeError cleanly
